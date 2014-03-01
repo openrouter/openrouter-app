@@ -1,70 +1,143 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2014 nanpuyue <nanpuyue@gmail.com>
+# Copyright (C) 2012 NowVideo Forum / animefans_xj
 
 START=99
-SERVICE_WRITE_PID=1
-SERVICE_DAEMONIZE=1
-
-append_params() {
-	local p; local v; local s="$1"; shift
-	for p in $*; do
-		config_get v "$s" "$p"
-		[ -n "$v" ] && (
-			p=$(echo "$p" | sed -e 's|_|-|g');
-			echo "$p=$v" >> $config_file
-			)
-	done
-}
-
-section_enabled() {
-	local result
-	config_get_bool result "$1" 'enabled' 0
-	[ $result -eq 1 ]
-}
-
-option_disabled() {
-	local result
-	config_get_bool result "$1" "$2" 1
-	[ $result -eq 0 ]
-}
-
-start_instance() {
-	local s="$1"
-	local user
-
-	section_enabled "$s" || return 1
-
-	config_get config_dir "$s" 'config_dir' '/var/etc/aria2'
-	config_get user "$s" 'user'
-
-	config_file="$config_dir/aria2.conf"
-	session_file="$config_dir/aria2.session"
-	dht_file="$config_dir/dht.dat"
-	[ -d "$config_dir" ] || {
-		mkdir -m 0755 -p "$config_dir"
-		touch "$config_file"
-		[ -z "$user" ] || chown -R $user $config_dir
-	}
-	touch "$session_file"
-
-	echo -e "enable-rpc=true\nrpc-allow-origin-all=true\nrpc-listen-all=true\nquiet=true" > $config_file
-	echo -e "continue=true\ninput-file=$session_file\nsave-session=$session_file" >> $config_file
-	option_disabled "$s" 'enable_dht' || echo "dht-file-path=$dht_file" >> $config_file
-
-	append_params "$s" \
-		file_allocation bt_enable_lpd enable_dht rpc_user rpc_passwd rpc_listen_port dir bt_tracker disk_cache \
-		max_overall_download_limit max_overall_upload_limit max_download_limit max_upload_limit max_concurrent_downloads \
-		max_connection_per_server min_split_size split save_session_interval follow_torrent listen_port bt_max_peers
-
-	SERVICE_UID="$user" \
-	service_start /usr/bin/aria2c --conf-path="$config_file"
-}
 
 start() {
-	config_load 'aria2'
-	config_foreach start_instance 'aria2'
+
+enabled=`uci get aria2.main.enabled -q`
+if    [ "$enabled" = "0" ]; then
+	/etc/init.d/aria2 stop
+else
+  config_load "aria2"
+  
+  local enabled user config_dir download_dir restore_task queue_size Split thread
+  local disable_ipv6 enable_lpd enable_dht listen_port rpc_auth rpc_user rpc_password
+  local extra_cmd cmd_line
+  local logEnable file_allocation check_integrity Continue min_split_size load_cookies  disk_cache  aria2_extra_config_file logSize Loglevel Enable_mmap  event_poll  force_save retry_wait max_tries peer_id_prefix   
+  
+  config_get enabled         main enabled
+  config_get user            main user
+  config_get logEnable       main logEnable
+  config_get check_integrity main check_integrity
+  config_get Continue        main Continue	
+  config_get file_allocation main file_allocation 
+  config_get min_split_size  main min_split_size 
+  config_get config_dir      main config_dir
+  config_get download_dir    main download_dir
+  config_get restore_task    main restore_task
+  config_get load_cookies    main load_cookies 
+  config_get save_interval   main save_interval
+  config_get queue_size      main queue_size
+  config_get Split           main Split
+  config_get thread          main thread
+  config_get disable_ipv6    main disable_ipv6
+  config_get enable_lpd      main enable_lpd
+  config_get enable_dht      main enable_dht
+  config_get listen_port     main listen_port
+  config_get download_speed  main download_speed
+  config_get upload_speed    main upload_speed
+  config_get rpc_auth        main rpc_auth
+  config_get rpc_user        main rpc_user
+  config_get rpc_password    main rpc_password
+  config_get extra_cmd       main extra_cmd
+  config_get cmd_line        main cmd_line
+  config_get force_save      main force_save
+  
+  local args
+  
+  download_speed="$download_speed"K
+  upload_speed="$upload_speed"K
+  
+  args="--enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -c --dir=$download_dir --auto-save-interval=$save_interval --file-allocation=$file_allocation --min-split-size=$min_split_size  --max-concurrent-downloads=$queue_size --split=$Split --max-connection-per-server=$thread --listen-port=$listen_port --max-overall-download-limit=$download_speed --max-overall-upload-limit=$upload_speed"
+  
+    
+  if [ ! -d $download_dir ]; then
+  mkdir -p $download_dir
+  fi
+
+  if [ ! -d $config_dir ]; then
+  mkdir -p $config_dir
+  fi
+  
+  if [ ! -f $config_dir/tasks.list ]; then
+  touch $config_dir/tasks.list
+  fi
+
+  if [ ! -f $config_dir/Aria2Log.txt ]; then
+  touch $config_dir/Aria2Log.txt
+  fi
+
+  if [ ! -f $config_dir/Aria2Cookies.cookies ]; then
+  touch $config_dir/Aria2Cookies.cookies
+  fi
+
+ if [ $restore_task -eq 1 ]; then
+  args="$args --save-session=$config_dir/tasks.list --input-file=$config_dir/tasks.list"
+  fi
+
+  if [ $force_save -eq 1 ]; then
+  args="$args --force-save=true --save-session=$config_dir/tasks.list"
+  fi  
+
+  if [ $disable_ipv6 -eq 1 ]; then
+  args="$args --disable-ipv6=true"
+  else
+  args="$args --disable-ipv6=false"
+  fi
+  
+  if [ $enable_lpd -eq 1 ]; then
+  args="$args --bt-enable-lpd=true"
+  else
+  args="$args --bt-enable-lpd=false"
+  fi
+  
+  if [ $logEnable ]; then
+  args="$args --log=$config_dir/Aria2Log.txt"
+  fi
+
+  if [ $check_integrity ]; then
+  args="$args --check-integrity=true"
+  else
+  args="$args --check-integrity=false"
+  fi
+
+  if [ $Continue ]; then
+  args="$args --continue=true"
+  else
+  args="$args --continue=false"
+  fi
+
+  
+  if [ $load_cookies ]; then
+  args="$args --load-cookies=$config_dir/Aria2Cookies.cookies"
+  fi
+  
+
+  if [ $enable_dht -eq 1 ]; then
+  args="$args --enable-dht=true  --dht-listen-port=51413"
+  else
+  args="$args --enable-dht=false"
+  fi
+  
+  if [ $rpc_auth -ne 0 ]; then
+  args="$args --rpc-user=$rpc_user --rpc-passwd=$rpc_password"
+  fi
+  
+  if [ $extra_cmd ]; then
+  args="$args $cmd_line"
+  fi  
+  
+/etc/init.d/aria2 enable
+  start-stop-daemon -c $user -q -b -x /usr/bin/aria2c -S -- $args
+fi
 }
 
 stop() {
-	service_stop /usr/bin/aria2c
+  start-stop-daemon -c $user -q -b -x /usr/bin/aria2c -K
 }
+
+restart() {
+  stop;sleep 10;start
+}
+

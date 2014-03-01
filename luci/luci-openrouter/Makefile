@@ -62,6 +62,9 @@ $(eval $(call application,aria2,LuCI Support for Aria2,\
 	+PACKAGE_luci-app-aria2:aria2 \
 	+PACKAGE_luci-app-aria2:yaaw))
 
+$(eval $(call application,nwan,nwan configuration module,\
+	 +PACKAGE_luci-app-nwan:ip +kmod-macvlan +iptables +iptables-mod-conntrack +iptables-mod-conntrack-extra +iptables-mod-ipopt))
+
 
 ### Compile ###
 PKG_CONFIG_DEPENDS=$(patsubst %,CONFIG_PACKAGE_%,$(LUCI_BUILD_PACKAGES))

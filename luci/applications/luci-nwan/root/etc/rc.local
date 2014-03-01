@@ -1,0 +1,8 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+sh /etc/config/macvlan/nwan_macvlan
+sh /etc/config/macvlan/nwan_macvlan100
+sh /etc/config/macvlan/nwan_macvlan200
+sh /etc/config/macvlan/nwan_macvlan300
+
+exit 0
