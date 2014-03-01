@@ -1,17 +1,59 @@
 msgid "Aria2 Settings"
 msgstr "Aria2配置"
 
-msgid "Aria2 is a multi-protocol & multi-source download utility, here you can configure the settings."
+msgid "Aria2 Settings"
+msgstr "Aria2下载器配置页"
+
+msgid "Use this page, you can download files from HTTP FTP and BitTorrent via Aria2."
 msgstr "Aria2是一个支持多协议多线程的下载器,你可以在这里对其进行配置."
 
 msgid "Open Web Interface"
 msgstr "打开Web界面"
 
-msgid "Global settings"
+msgid "Global"
 msgstr "全局设置"
 
 msgid "Enabled"
 msgstr "启用"
+
+msgid "Log Enabled"
+msgstr "日志功能"
+
+msgid "Enable log"
+msgstr "启用日志"
+
+msgid "Log Size"
+msgstr "日志大小"
+
+msgid "Log Level"
+msgstr "日志等级"
+
+msgid "Check Integrity"
+msgstr "检查完整性"
+
+msgid "Check file integrity by validating piece hashes or a hash of entire file"
+msgstr "通过验证散列片或整个文件的哈希值检查文件的完整性"
+
+msgid "Continue"
+msgstr "继续下载"
+
+msgid "Continue downloading a partially downloaded file."
+msgstr "下载未完成的部分。"
+
+msgid "MB The min size to split the file to pieces to download"
+msgstr "单位MB"
+
+msgid "Location"
+msgstr "路径设置"
+
+msgid "Config Directory"
+msgstr "配置文件路径"
+
+msgid "Download Directory"
+msgstr "下载路径"
+
+msgid "Disk Cache"
+msgstr "磁盘缓存"
 
 msgid "Config file directory"
 msgstr "配置文件目录"
@@ -25,17 +67,38 @@ msgstr "文件和目录"
 msgid "Default download directory"
 msgstr "默认下载目录"
 
-msgid "Disk cache"
-msgstr "磁盘缓存"
+msgid "File Allocation"
+msgstr "文件预分配"
 
-msgid "Preallocation"
-msgstr "磁盘预分配"
+msgid "none: doesn't pre-allocate file space. prealloc:pre-allocates file space before download begins.This may take some time depending on the size ofthe file.If you are using newer file systems such as ext4(with extents support), btrfs, xfs or NTFS(MinGW build only), falloc is your bestchoice. It allocates large(few GiB) filesalmost instantly. Don't use falloc with legacyfile systems such as ext3 and FAT32 because ittakes almost same time as prealloc and itblocks aria2 entirely until allocation finishes.falloc may not be available if your system doesn't have posix_fallocate() function.trunc : uses ftruncate() system call or platform-specific counterpart to truncate a file to a specified length."
+msgstr "Ext4分区可以使用\"falloc\"，其他分区格式建议禁用"
 
-msgid "\"falloc\" is not available in all cases"
-msgstr "\"falloc\"并不是在所有情况下都可用"
-
-msgid "Task Settings"
+msgid "Task"
 msgstr "任务设置"
+
+msgid "Restore unfinished task when boot"
+msgstr "重启路由器或Aria2后继续下载未完成打任务"
+
+msgid "Load Cookies from FILE using the Firefox3 format and Mozilla/Firefox(1.x/2.x)/Netscape format.(Aria2Cookies.cookies)"
+msgstr "从浏览器载入Cookies"
+
+msgid "Save interval"
+msgstr "任务保存时间间隔 "
+
+msgid "In seconds, 0 means unsave and let tasks can't be restore "
+msgstr "单位“秒”，设置未0表示不保存"
+
+msgid "Download queue size"
+msgstr "下载队列的大小"
+
+msgid "Blocks of per task"
+msgstr "任务分块"
+
+msgid "Download threads of per server"
+msgstr "下载线程"
+
+msgid "Force Save"
+msgstr "储存与下载 - 保存会话选项，下载完成后保存或删除"
 
 msgid "Overall speed limit enabled"
 msgstr "启用全局限速"
