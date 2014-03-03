@@ -11,10 +11,10 @@ HISTORY_DIR="/etc/config/macvlan"
 
 boot() {
 echo "nwannumset boot.........."
-  sh ${HISTORY_DIR}/nwan_macvlan300
-  sh ${HISTORY_DIR}/nwan_macvlan200
-  sh ${HISTORY_DIR}/nwan_macvlan100
-  sh ${HISTORY_DIR}/nwan_macvlan
+  sh ${HISTORY_DIR}/nwan_macvlan300 >/dev/null 2>&1
+  sh ${HISTORY_DIR}/nwan_macvlan200 >/dev/null 2>&1
+  sh ${HISTORY_DIR}/nwan_macvlan100 >/dev/null 2>&1
+  sh ${HISTORY_DIR}/nwan_macvlan >/dev/null 2>&1
 }
 
 start() {

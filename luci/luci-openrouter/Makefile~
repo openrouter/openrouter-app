@@ -65,11 +65,6 @@ $(eval $(call application,aria2,LuCI Support for Aria2,\
 $(eval $(call application,nwan,nwan configuration module,\
 	 +PACKAGE_luci-app-nwan:ip +kmod-macvlan +iptables +iptables-mod-conntrack +iptables-mod-conntrack-extra +iptables-mod-ipopt))
 
-$(eval $(call application,vsftpd,vsftpd configuration module,\
-	 +PACKAGE_luci-app-vsftpd:vsftpd))
-
-$(eval $(call application,webcam,webcam configuration module,\
-	 +PACKAGE_luci-webcam:webcam))
 
 ### Compile ###
 PKG_CONFIG_DEPENDS=$(patsubst %,CONFIG_PACKAGE_%,$(LUCI_BUILD_PACKAGES))

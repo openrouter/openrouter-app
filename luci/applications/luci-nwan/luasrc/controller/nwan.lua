@@ -12,7 +12,7 @@ function index()
 
 	if nixio.fs.access("/etc/config/nwannumset") then
 	local page 
-	page = entry({"admin", "nwannumset"}, cbi("nwan/nwannumset"), _("macvlan"), 59)
+	page = entry({"admin", "Extend", "nwannumset"}, cbi("nwan/nwannumset"), _("macvlan"), 59)
 	page.i18n = "nwan"
 	page.dependent = true
 	end

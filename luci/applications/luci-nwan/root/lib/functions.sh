@@ -1,7 +1,6 @@
 #!/bin/sh
-# Copyright (C) 2006-2013 OpenWrt.org
+# Copyright (C) 2006-2011 OpenWrt.org
 # Copyright (C) 2006 Fokus Fraunhofer <carsten.tittel@fokus.fraunhofer.de>
-# Copyright (C) 2010 Vertical Communications
 
 
 debug () {
@@ -201,7 +200,7 @@ config_list_foreach() {
 	[ -z "$len" ] && return 0
 	while [ $c -le "$len" ]; do
 		config_get val "${section}" "${option}_ITEM$c"
-		eval "$function \"\$val\" \"\$@\""
+		eval "$function \"\$val\" \"$@\""
 		c="$(($c + 1))"
 	done
 }
@@ -228,65 +227,6 @@ find_mtd_part() {
 	PART="${PART##mtd}"
 	[ -d /dev/mtdblock ] && PREFIX=/dev/mtdblock/
 	echo "${PART:+$PREFIX$PART}"
-}
-
-
-mtd_get_mac_ascii()
-{
-	local mtdname="$1"
-	local key="$2"
-	local part
-	local mac_dirty
-
-	. /lib/functions.sh
-
-	part=$(find_mtd_part "$mtdname")
-	if [ -z "$part" ]; then
-		echo "mtd_get_mac_ascii: partition $mtdname not found!" >&2
-		return
-	fi
-
-	mac_dirty=$(strings "$part" | sed -n 's/'"$key"'=//p')
-	# "canonicalize" mac
-	printf "%02x:%02x:%02x:%02x:%02x:%02x" 0x${mac_dirty//:/ 0x}
-}
-
-mtd_get_mac_binary() {
-	local mtdname="$1"
-	local offset="$2"
-	local part
-
-	part=$(find_mtd_part "$mtdname")
-	if [ -z "$part" ]; then
-		echo "mtd_get_mac_binary: partition $mtdname not found!" >&2
-		return
-	fi
-
-	dd bs=1 skip=$offset count=6 if=$part 2>/dev/null | hexdump -v -n 6 -e '5/1 "%02x:" 1/1 "%02x"'
-}
-
-macaddr_add() {
-	local mac=$1
-	local val=$2
-	local oui=${mac%:*:*:*}
-	local nic=${mac#*:*:*:}
-
-	nic=$(printf "%06x" $((0x${nic//:/} + $val & 0xffffff)) | sed 's/^\(.\{2\}\)\(.\{2\}\)\(.\{2\}\)/\1:\2:\3/')
-	echo $oui:$nic
-}
-
-macaddr_setbit_la()
-{
-	local mac=$1
-
-	printf "%02x:%s" $((0x${mac%%:*} | 0x02)) ${mac#*:}
-}
-
-macaddr_2bin()
-{
-	local mac=$1
-
-	echo -ne \\x${mac//:/\\x}
 }
 
 strtok() { # <string> { <variable> [<separator>] ... }
@@ -397,67 +337,4 @@ pi_include() {
 	return 0
 }
 
-boot_hook_splice_start() {
-	export -n PI_HOOK_SPLICE=1
-}
-
-boot_hook_splice_finish() {
-	local hook
-	for hook in $PI_STACK_LIST; do
-		local v; eval "v=\${${hook}_splice:+\$${hook}_splice }$hook"
-		export -n "${hook}=${v% }"
-		export -n "${hook}_splice="
-	done
-	export -n PI_HOOK_SPLICE=
-}
-
-boot_hook_init() {
-	local hook="${1}_hook"
-	export -n "PI_STACK_LIST=${PI_STACK_LIST:+$PI_STACK_LIST }$hook"
-	export -n "$hook="
-}
-
-boot_hook_add() {
-	local hook="${1}_hook${PI_HOOK_SPLICE:+_splice}"
-	local func="${2}"
-
-	[ -n "$func" ] && {
-		local v; eval "v=\$$hook"
-		export -n "$hook=${v:+$v }$func"
-	}
-}
-
-boot_hook_shift() {
-	local hook="${1}_hook"
-	local rvar="${2}"
-
-	local v; eval "v=\$$hook"
-	[ -n "$v" ] && {
-		local first="${v%% *}"
-
-		[ "$v" != "${v#* }" ] && \
-			export -n "$hook=${v#* }" || \
-			export -n "$hook="
-
-		export -n "$rvar=$first"
-		return 0
-	}
-
-	return 1
-}
-
-boot_run_hook() {
-	local hook="$1"
-	local func
-
-	while boot_hook_shift "$hook" func; do
-		local ran; eval "ran=\$PI_RAN_$func"
-		[ -n "$ran" ] || {
-			export -n "PI_RAN_$func=1"
-			$func "$1" "$2"
-		}
-	done
-}
-
 [ -z "$IPKG_INSTROOT" -a -f /lib/config/uci.sh ] && . /lib/config/uci.sh
-

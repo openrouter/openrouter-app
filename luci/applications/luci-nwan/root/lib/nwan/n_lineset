@@ -325,35 +325,35 @@ case $route_modle in
 
   case $line_num in
 		  1) 
-	ucidef_add_switch_vlan "switch0" "1" "0t 2 3 4 5"
-	ucidef_add_switch_vlan "switch0" "2" "0t 1"
+	ucidef_add_switch_vlan "eth0" "1" "0t 2 3 4 5"
+	ucidef_add_switch_vlan "eth0" "2" "0t 1"
 uci set network.wan.ifname="eth0.2"
 		ifup wan&
 		  ;;		  
 			2) 
-	ucidef_add_switch_vlan "switch0" "1" "0t 3 4 5"
-	ucidef_add_switch_vlan "switch0" "3" "0t 2"
-	ucidef_add_switch_vlan "switch0" "2" "0t 1"
+	ucidef_add_switch_vlan "eth0" "1" "0t 3 4 5"
+	ucidef_add_switch_vlan "eth0" "3" "0t 2"
+	ucidef_add_switch_vlan "eth0" "2" "0t 1"
 uci set network.wan.ifname="eth0.2"
 uci set network.wan100.ifname="eth0.3"
 				ifup wan&ifup wan100&
 		  ;;
 			3)
-	ucidef_add_switch_vlan "switch0" "1" "0t 4 5"
-	ucidef_add_switch_vlan "switch0" "4" "0t 3"
-	ucidef_add_switch_vlan "switch0" "3" "0t 2"
-	ucidef_add_switch_vlan "switch0" "2" "0t 1"
+	ucidef_add_switch_vlan "eth0" "1" "0t 4 5"
+	ucidef_add_switch_vlan "eth0" "4" "0t 3"
+	ucidef_add_switch_vlan "eth0" "3" "0t 2"
+	ucidef_add_switch_vlan "eth0" "2" "0t 1"
 uci set network.wan.ifname="eth0.2"
 uci set network.wan100.ifname="eth0.3"
 uci set network.wan200.ifname="eth0.4"
 				ifup wan&ifup wan100&ifup wan200&
 		  ;;
 			4) 
-	ucidef_add_switch_vlan "switch0" "1" "0t 5"
-	ucidef_add_switch_vlan "switch0" "5" "0t 4"
-	ucidef_add_switch_vlan "switch0" "4" "0t 3"
-	ucidef_add_switch_vlan "switch0" "3" "0t 2"
-	ucidef_add_switch_vlan "switch0" "2" "0t 1"
+	ucidef_add_switch_vlan "eth0" "1" "0t 5"
+	ucidef_add_switch_vlan "eth0" "5" "0t 4"
+	ucidef_add_switch_vlan "eth0" "4" "0t 3"
+	ucidef_add_switch_vlan "eth0" "3" "0t 2"
+	ucidef_add_switch_vlan "eth0" "2" "0t 1"
 uci set network.wan.ifname="eth0.2"
 uci set network.wan100.ifname="eth0.3"
 uci set network.wan200.ifname="eth0.4"
