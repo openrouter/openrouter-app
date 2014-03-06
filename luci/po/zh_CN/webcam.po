@@ -1,0 +1,51 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "mjpg-streamer webcam"
+msgstr "USB摄像头配置"
+
+msgid "webcam mod by xiaobiao."
+msgstr ""
+
+msgid "CORE"
+msgstr "核心设置"
+
+msgid "enabled webcam"
+msgstr "启用"
+
+msgid " enable or disable mjpg-streamer webcam."
+msgstr "启用或者禁用你的装置"
+
+msgid "device"
+msgstr "硬件路径"
+
+msgid "resolution"
+msgstr "分辨率"
+
+msgid "fps"
+msgstr "帧频(FPS)"
+
+msgid "port"
+msgstr "端口"
+
+msgid "PassWord Login"
+msgstr "设置访问密码"
+
+msgid "Enable or disable password login webcam."
+msgstr "设置访问摄像头的密码"
+
+msgid "username"
+msgstr "用户"
+
+msgid "password"
+msgstr "密码"
+
+msgid "Open video model"
+msgstr "打开摄像头"
+
+msgid "Play video with stream"
+msgstr "播放视频流"
+
+msgid "Play video with javascript"
+msgstr "以javascript方式播放视频"
+
