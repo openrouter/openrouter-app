@@ -13,6 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.6\n"
 
+msgid "macvlan"
+msgstr "多拨/多线"
+
+msgid "N-WAN"
+msgstr "多拨路由表"
+
+msgid "vsftp"
+msgstr "FTP服务器"
+
 msgid "(%d minute window, %d second interval)"
 msgstr "(%d分钟信息，%d秒刷新)"
 
