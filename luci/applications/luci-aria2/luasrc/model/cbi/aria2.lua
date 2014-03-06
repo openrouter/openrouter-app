@@ -19,7 +19,7 @@ require("luci.util")
 local running=(luci.sys.call("pidof aria2c > /dev/null") == 0)
 local button=""
 if running then
-	button="&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" value=\" " .. translate("Open Aria2 Web Interface") .. " \" onclick=\"window.open('http://'+window.location.host+'/aria2')\"/>"
+	button="&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" value=\" " .. translate("Open Aria2 Web Interface") .. " \" onclick=\"window.open('http://'+window.location.host+'/yaaw')\"/>"
 end
 
 m=Map("aria2",translate("Aria2 Downloader"),translate("Use this page, you can download files from HTTP FTP and BitTorrent via Aria2.") .. button)
