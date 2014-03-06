@@ -10,6 +10,13 @@ msgstr "Aria2是一个支持多协议多线程的下载器,你可以在这里对
 msgid "Open Web Interface"
 msgstr "打开Web界面"
 
+msgid "Event Poll"
+msgstr "轮询"
+
+msgid "Specify the method for polling events. The possible values are epoll, kqueue, port, poll and select. For each epoll, kqueue, port and poll, it is available if system supports it. epoll is available on recent Linux. kqueue is available on various *BSD systems including Mac OS X. port is available on Open Solaris. The default value may vary depending on the system you use."
+msgstr "暂时没法翻译，建议保持默认设置"
+
+
 msgid "Global"
 msgstr "全局设置"
 
@@ -77,7 +84,7 @@ msgid "Task"
 msgstr "任务设置"
 
 msgid "Restore unfinished task when boot"
-msgstr "重启路由器或Aria2后继续下载未完成打任务"
+msgstr "继续下载"
 
 msgid "Load Cookies from FILE using the Firefox3 format and Mozilla/Firefox(1.x/2.x)/Netscape format.(Aria2Cookies.cookies)"
 msgstr "从浏览器载入Cookies"
@@ -98,7 +105,58 @@ msgid "Download threads of per server"
 msgstr "下载线程"
 
 msgid "Force Save"
-msgstr "储存与下载 - 保存会话选项，下载完成后保存或删除"
+msgstr "储存与下载"
+
+msgid "Max Trie Times"
+msgstr "特里时间"
+
+msgid "Max Try Times,0 Means No Limit"
+msgstr "最大重试时间"
+
+msgid "Retry Wait Time"
+msgstr "等待时间"
+
+msgid "Retry Wait Time SEC"
+msgstr "设置等待时间SEC"
+
+msgid "Disable IPv6"
+msgstr "禁用IPV6"
+
+msgid "Enable Local Peer Discovery"
+msgstr "启用本地Peer发现"
+
+msgid "Enable DHT Network"
+msgstr "启用DHT网络"
+
+msgid "Port for BitTorrent"
+msgstr "BitTorrent端口设置"
+
+msgid "Download speed limit"
+msgstr "下载限速"
+
+msgid "Upload speed limit"
+msgstr "上传限速"
+
+msgid "Remote Control"
+msgstr "远程安全"
+
+msgid "Use RPC Auth"
+msgstr "启用RPC Auth"
+
+msgid "User name"
+msgstr "用户名"
+
+msgid "Advanced"
+msgstr "高级设置"
+
+msgid "User Agent"
+msgstr "伪装"
+
+msgid "add extra commands"
+msgstr "添加扩展命令"
+
+msgid "Save download with --save-session option even if the download is completed or removed"
+msgstr "保存下载任务记录"
 
 msgid "Overall speed limit enabled"
 msgstr "启用全局限速"

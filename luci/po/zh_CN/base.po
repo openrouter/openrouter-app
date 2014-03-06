@@ -16,10 +16,19 @@ msgstr ""
 msgid "macvlan"
 msgstr "多拨/多线"
 
+msgid "Extend"
+msgstr "扩展"
+
+msgid "FreeM"
+msgstr "释放内存"
+
+msgid "UPNP"
+msgstr "UPnP重定向"
+
 msgid "N-WAN"
 msgstr "多拨路由表"
 
-msgid "vsftp"
+msgid "vsftpd"
 msgstr "FTP服务器"
 
 msgid "(%d minute window, %d second interval)"

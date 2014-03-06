@@ -4,6 +4,9 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "mjpg-streamer webcam"
 msgstr "USB摄像头配置"
 
+msgid "webcam"
+msgstr "网络摄像头"
+
 msgid "webcam mod by xiaobiao."
 msgstr ""
 
