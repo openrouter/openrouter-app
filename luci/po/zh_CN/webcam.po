@@ -16,7 +16,7 @@ msgstr "核心设置"
 msgid "enabled webcam"
 msgstr "启用"
 
-msgid " enable or disable mjpg-streamer webcam."
+msgid "enable or disable mjpg-streamer webcam."
 msgstr "启用或者禁用你的装置"
 
 msgid "device"
