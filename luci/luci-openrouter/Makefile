@@ -69,7 +69,7 @@ $(eval $(call application,vsftpd,vsftpd configuration module,\
 	 +PACKAGE_luci-app-vsftpd:vsftpd))
 
 $(eval $(call application,webcam,webcam configuration module,\
-	 +PACKAGE_luci-webcam:webcam+mjpg-streamer))
+	 +PACKAGE_luci-webcam:webcam +mjpg-streamer))
 
 ### Compile ###
 PKG_CONFIG_DEPENDS=$(patsubst %,CONFIG_PACKAGE_%,$(LUCI_BUILD_PACKAGES))
