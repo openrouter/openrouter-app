@@ -71,6 +71,9 @@ $(eval $(call application,vsftpd,vsftpd configuration module,\
 $(eval $(call application,ddns-scripts-openrouter,LuCI Support for ddns-openrouter,\
 	+PACKAGE_luci-app-ddns-scripts-openrouter:ddns-openrouter))
 
+$(eval $(call application,DNS-Filter,DNS-Filter configuration module,\
+	 +PACKAGE_luci-app-DNS-Filter:libc +bash +screen +wget))
+
 $(eval $(call application,webcam,webcam configuration module,\
 	 +PACKAGE_luci-webcam:webcam +mjpg-streamer))
 

@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+
+msgid "global"
+msgstr "全局设定"
+
+msgid "GLOBAL"
+msgstr "全局"
+
+msgid "UpLoad"
+msgstr "上传"
+
+msgid "enable upload qos"
+msgstr "启用上传QOS"
+
+msgid "default_class"
+msgstr "默认等级"
+
+msgid "total_bandwidth"
+msgstr "总带宽"
+
+msgid "DownLoad"
+msgstr "下载"
+
+msgid "enable download qos"
+msgstr "启用下载QOS"
+
+msgid "UpLoad Set"
+msgstr "上传设置"
+
+msgid "upload_class"
+msgstr "上传优先级"
+
+msgid "name"
+msgstr "名称"
+
+msgid "upload_rule"
+msgstr "上传规则"
+
+msgid "class"
+msgstr "等级"
