@@ -34,13 +34,7 @@ endef
 define Build/Compile
 endef
 
-define Package/ddns-openrouter/conffiles
-/etc/config/ddns
-endef
-
-define Package/ddns-openrouter/install
-	$(INSTALL_DIR) $(1)
-	$(CP) ./files/* $(1)/
+define Package/install
 endef
 
 $(eval $(call BuildPackage,ddns-openrouter))
