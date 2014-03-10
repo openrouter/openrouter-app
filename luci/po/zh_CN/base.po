@@ -13,6 +13,45 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.6\n"
 
+msgid "task name"
+msgstr "计划任务名"
+
+msgid "Everyday"
+msgstr "每天"
+
+msgid "task Everyday desc"
+msgstr "每天都执行"
+
+msgid "Monday"
+msgstr "星期一"
+
+msgid "Tuesday"
+msgstr "星期二"
+
+msgid "Wednesday"
+msgstr "星期三"
+
+msgid "Thursday"
+msgstr "星期四"
+
+msgid "Friday"
+msgstr "星期五"
+
+msgid "Sartuday"
+msgstr "星期六"
+
+msgid "Sunday"
+msgstr "星期日"
+
+msgid "time"
+msgstr "设置时间"
+
+msgid "task command"
+msgstr "任务内容"
+
+msgid "command desc"
+msgstr "设置执行多任务内容"
+
 msgid "macvlan"
 msgstr "多拨/多线"
 
@@ -24,6 +63,12 @@ msgstr "释放内存"
 
 msgid "UPNP"
 msgstr "UPnP重定向"
+
+msgid "DNS-Filter"
+msgstr "DNS过滤器(去广告)"
+
+msgid "qos_gargoyle"
+msgstr "石像鬼QOS"
 
 msgid "N-WAN"
 msgstr "多拨路由表"

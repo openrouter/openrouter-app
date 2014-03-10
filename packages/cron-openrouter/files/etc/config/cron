@@ -1,0 +1,15 @@
+
+config task
+	option enabled '1'
+	option task_name 'wifidown'
+	option task_Everyday '1'
+	option task_Monday '0'
+	option task_Tuesday '0'
+	option task_Wednesday '0'
+	option task_Thursday '0'
+	option task_Friday '0'
+	option task_Sartuday '0'
+	option task_Sunday '0'
+	option task_time '23:00'
+	option task_task 'wifi down'
+

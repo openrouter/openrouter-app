@@ -30,9 +30,7 @@ s:option(Flag, "enabled", translate("Enable"),translate("Enable intelvel update"
 s:option(Value, "check_interval",translate("Check for changed IP every"),translate("interval minute")).default = 100
 
 crontab = s:option( DummyValue,"crontab", translate("intelvel update"))
-crontab.titleref = luci.dispatcher.build_url("admin", "system", "crontab")
-
-
+crontab.titleref = luci.dispatcher.build_url("admin/system/crontab")
 service = m:section(TypedSection, "service", "")
 service.anonymous = true
 service.addremove = true
@@ -75,6 +73,9 @@ ipaddr.rmempty = false
 function ipaddr.cfgvalue(self, s)
 	return self.map:get(s, "ipaddr") or "*.*.*.*"
 end
+
+cmd = "/usr/lib/ddns/dynamic_dns_updater.sh ifup"
+os.execute(cmd)
 
 return m
 

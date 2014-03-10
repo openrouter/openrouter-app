@@ -94,20 +94,22 @@ password=$(encodeurl $password)
 
 
 ddns_goble_get(){
-	 config_get enabled $1 enabled
-	 config_get check_interval $1 check_interval
-	# echo "1=$enabled 2=$check_interval" 
-
-# add crontabs task 
-. /lib/upgrade/common.sh	 
-	if  [ "$enabled" == "1" -a "$check_interval" != "0" ]; then 
-delete_task ddns_scheduler
-add_task ddns_scheduler "/usr/lib/ddns/dynamic_dns_updater.sh scheduler" ${check_interval}
-	else 
-delete_task ddns_scheduler
-	fi
+         config_get enabled $1 enabled
+         config_get check_interval $1 check_interval
+        # echo "1=$enabled 2=$check_interval"
+ [ -f /etc/crontabs/root ]|| touch /etc/crontabs/root
+ [ -f /tmp/tmp_crontab ]|| touch /tmp/tmp_crontab
+if  [ "$enabled" == "1" -a "$check_interval" != "0" ]; then
+ [ -z "$(cat /etc/crontabs/root| grep ddns_scheduler)" ]&&echo "*/${check_interval} * * * * /usr/lib/ddns/dynamic_dns_updater.sh scheduler  #ddns_scheduler#" >> /etc/crontabs/root
+ [ -z "$(cat /tmp/tmp_crontab  | grep ddns_scheduler)" ]&&echo "*/${check_interval} * * * * /usr/lib/ddns/dynamic_dns_updater.sh scheduler  #ddns_scheduler#" >> /tmp/tmp_crontab
+                        [ $(ps | grep crond | grep -v grep | wc -l ) == 0 ] && /etc/init.d/cron restart
+                else
+                [ -n "$(cat /tmp/tmp_crontab| grep  ddns_scheduler)" ]&& sed -i -e '/ddns_scheduler/d' /tmp/tmp_crontab
+    [ -n "$(cat /etc/crontabs/root| grep  ddns_scheduler)" ]&& sed -i -e '/ddns_scheduler/d' /etc/crontabs/root
+                fi
 
 }
+
 	 
 
 ddns_service_get(){
@@ -148,7 +150,7 @@ update_ipaddress
  
 }
 
- config_load ddns
+config_load ddns
 
 case "$1" in
 	start )

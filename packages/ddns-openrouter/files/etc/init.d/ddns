@@ -3,7 +3,7 @@
 START=95
 
 start () {
-
+   touch /tmp/limeng_ddns_start.txt
    sh /usr/lib/ddns/dynamic_dns_updater.sh start 
 }
 

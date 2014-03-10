@@ -26,7 +26,7 @@ msgid "enable download qos"
 msgstr "启用下载QOS"
 
 msgid "UpLoad Set"
-msgstr "上传设置"
+msgstr "上传限制"
 
 msgid "upload_class"
 msgstr "上传优先级"
@@ -39,3 +39,69 @@ msgstr "上传规则"
 
 msgid "class"
 msgstr "等级"
+
+msgid "false"
+msgstr "禁用"
+
+msgid "true"
+msgstr "启用"
+
+msgid "upload"
+msgstr "上传"
+
+msgid "percent_bandwidth"
+msgstr "带宽百分比"
+
+msgid "percent of total bandwidth to use"
+msgstr "即总带宽%"
+
+msgid "min_bandwidth"
+msgstr "最小值"
+
+msgid "min bandwidth useage in absolute speed (kbit/s)"
+msgstr "单位kbit/s"
+
+msgid "max_bandwidth"
+msgstr "最大值"
+
+msgid "max bandwidth useage in absolute speed (kbit/s)"
+msgstr "单位kbit/s"
+
+msgid "Fast"
+msgstr "快速"
+
+msgid "Slow"
+msgstr "慢速"
+
+msgid "test_order"
+msgstr "测试指令"
+
+msgid "proto"
+msgstr "协议"
+
+msgid "source ip"
+msgstr "源IP"
+
+msgid "destination ip"
+msgstr "目标IP"
+
+msgid "destination port"
+msgstr "目标端口"
+
+msgid "source port"
+msgstr "源端口"
+
+msgid "min_pkt_size"
+msgstr "封包最小值"
+
+msgid "max_pkt_size"
+msgstr "封包最大值"
+
+msgid "DownLoad Set"
+msgstr "下载限制"
+
+msgid "download_class"
+msgstr "下载等级"
+
+msgid "download_rule"
+msgstr "下载规则"
