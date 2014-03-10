@@ -94,7 +94,7 @@ msgid "interval minute"
 msgstr "单位：分钟"
 
 msgid "intelvel update"
-msgstr "将动态域名更新添加到计划任务"
+msgstr "新添加到计划任务"
 
 msgid "ddns update time"
 msgstr "最近一次更新时间"

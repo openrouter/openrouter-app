@@ -1,9 +1,5 @@
 #!/bin/sh
-# /usr/lib/dynamic_dns/dynamic_dns_updater.sh
-#
-# Written by zjhzzyf, 20110303
-#
-# http://www.openwrt.org.cn/
+
 #
 
 
