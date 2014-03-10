@@ -14,7 +14,7 @@ PKG_MAINTAINER:=openrouter <empire.x@qq.com>
 
 PKG_SOURCE:=$(PKG_NAME).tar.gz
 PKG_SOURCE_URL:=http://592.3322.org:592/OpenRouter/
-PKG_MD5SUM:=dbcbed72a513d289e7cbbf1f1a31c1f7
+PKG_MD5SUM:=56b85a251ae2d7341b40449d6419f020
 
 
 include $(INCLUDE_DIR)/package.mk
