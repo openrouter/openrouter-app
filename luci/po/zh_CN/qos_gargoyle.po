@@ -1,6 +1,9 @@
 msgid ""
 msgstr ""
 
+msgid "Qos_Gargoyle"
+msgstr "石像鬼QOS"
+
 msgid "global"
 msgstr "全局设定"
 
