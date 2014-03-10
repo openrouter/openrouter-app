@@ -22,7 +22,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/cron-openrouter
   SECTION:=net
   CATEGORY:=Network
-  SUBMENU:=cron fix by openrouter
+  SUBMENU:=IP Addresses and Names
   TITLE:=cron-openrouter
   PKGARCH:=all
 endef
