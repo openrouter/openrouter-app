@@ -17,7 +17,7 @@ PKG_MD5SUM:=2ea5d19978710527bb7444d93b67767a
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/vsftpd
+define Package/vsftpd-2.3
   SUBMENU:=File Transfer
   SECTION:=net
   CATEGORY:=Network
