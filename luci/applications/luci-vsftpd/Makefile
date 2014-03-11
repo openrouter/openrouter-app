@@ -1,4 +1,4 @@
-PO = vsftpd-2.3
+PO = vsftpd
 
 include ../../build/config.mk
 include ../../build/module.mk

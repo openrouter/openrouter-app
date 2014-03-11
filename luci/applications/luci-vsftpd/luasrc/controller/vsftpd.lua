@@ -21,7 +21,7 @@ function index()
 		return
 	end
 	
-	local page = entry({"admin","services","vsftpd"},cbi("vsftpd"),_("FTP Service"))
+	local page = entry({"admin","Extend","vsftpd"},cbi("vsftpd"),_("FTP Service"))
 	page.i18n="vsftpd"
 	page.dependent=true
 end
