@@ -66,7 +66,7 @@ $(eval $(call application,nwan,nwan configuration module,\
 	 +PACKAGE_luci-app-nwan:ip +kmod-macvlan +iptables +iptables-mod-conntrack +iptables-mod-conntrack-extra +iptables-mod-ipopt))
 
 $(eval $(call application,vsftpd,vsftpd configuration module,\
-	 +PACKAGE_luci-app-vsftpd:vsftpd))
+	 +PACKAGE_luci-app-vsftpd:vsftpd-2.3))
 
 $(eval $(call application,cron-openrouter,LuCI Support for cron-openrouter,\
 	+PACKAGE_luci-app-cron-openrouter:cron-openrouter))
