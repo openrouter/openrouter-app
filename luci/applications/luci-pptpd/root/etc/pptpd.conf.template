@@ -1,0 +1,7 @@
+#debug
+option /etc/ppp/options.pptpd
+speed 115200
+stimeout 10
+localip |REMOTE_IP_MASK|.1
+remoteip |REMOTE_IP_MASK|.|REMOTE_IP_BEGIN|-|REMOTE_IP_END|
+#localip & remoteip are not needed, ip management is done by pppd
