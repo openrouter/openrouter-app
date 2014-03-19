@@ -46,13 +46,6 @@ monenabled.default = "false"
 
 uclass = s:option(Value, "default_class", translate("default_class"))
 uclass.rmempty = "true"
-a = m.uci:get("qos_gargoyle", "upload", "default_class")
-if a then
-	if m.uci:get("qos_gargoyle", a) then
-	else
-		m.uci:set("qos_gargoyle", "upload", "default_class", "")
-	end
-end
 for line in io.lines("/etc/config/qos_gargoyle") do
 	local str = line
 	line = string.gsub(line, "config ['\"]*upload_class['\"]* ", "")
@@ -61,9 +54,7 @@ for line in io.lines("/etc/config/qos_gargoyle") do
 		line = string.gsub(line, "^\"", "")
 		line = string.gsub(line, "'$", "")
 		line = string.gsub(line, "\"$", "")
-		if m.uci:get("qos_gargoyle", line, "name") then
-			uclass:value(line, translate(m.uci:get("qos_gargoyle", line, "name")))
-		end
+		uclass:value(line, translate(m.uci:get("qos_gargoyle", line, "name")))
 	end
 end
 
@@ -73,20 +64,13 @@ tb.datatype = "and(uinteger,min(1))"
 
 s = m:section(TypedSection, "download", translate("DownLoad"))
 
-monenabled = s:option(ListValue, "monenabled", translate("enable upload qos"))
+monenabled = s:option(ListValue, "monenabled", translate("enable download qos"))
 monenabled:value("false")
 monenabled:value("true")
 monenabled.default = "false"
 
 dclass = s:option(Value, "default_class", translate("default_class"))
 dclass.rmempty = "true"
-if m.uci:get("qos_gargoyle", "download", "default_class") then
-	if m.uci:get("qos_gargoyle", m.uci:get("qos_gargoyle", "download", "default_class")) then
-	else
-		m.uci:set("qos_gargoyle", "download", "default_class", "")
-	end
-end
-
 for l in io.lines("/etc/config/qos_gargoyle") do
 	local s = l
 	l = string.gsub(l, "config ['\"]*download_class['\"]* ", "")
@@ -95,9 +79,7 @@ for l in io.lines("/etc/config/qos_gargoyle") do
 		l = string.gsub(l, "^\"", "")
 		l = string.gsub(l, "'$", "")
 		l = string.gsub(l, "\"$", "")
-		if m.uci:get("qos_gargoyle", l, "name") then
-			dclass:value(l, translate(m.uci:get("qos_gargoyle", l, "name")))
-		end
+		dclass:value(l, translate(m.uci:get("qos_gargoyle", l, "name")))
 	end
 end
 

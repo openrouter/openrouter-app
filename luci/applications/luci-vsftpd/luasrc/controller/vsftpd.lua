@@ -1,7 +1,7 @@
 --[[
 LuCI - Lua Configuration Interface - vsftpd support
 
-Script by animefans_xj @ www.nvacg.com (af_xj@hotmail.com , xujun@smm.cn)
+Script by animefans_xj @ nvacg.com (af_xj@hotmail.com , xujun@smm.cn)
 
 Licensed under the Apache License, Version 2.0 (the "license");
 you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ function index()
 		return
 	end
 	
-	local page = entry({"admin","Extend","vsftpd"},cbi("vsftpd"),_("FTP Service"))
+	local page = entry({"admin","services","vsftpd"},cbi("vsftpd"),_("FTP Service"))
 	page.i18n="vsftpd"
 	page.dependent=true
 end

@@ -1,7 +1,4 @@
-#!/bin/sh 
-
-[ -n "${IPKG_INSTROOT}" ] || {
-	( . /etc/uci-defaults/luci-qos_gargoyle ) && rm -f /etc/uci-defaults/luci-qos_gargoyle
-
+#!/bin/sh
+	/etc/init.d/qos_gargoyle enable
 	exit 0
 }

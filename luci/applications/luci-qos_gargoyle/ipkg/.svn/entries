@@ -2,7 +2,7 @@
 
 dir
 737
-svn://svn.openwrt.org.cn/dreambox/feeds/luci/trunk/luci/luci/applications/luci-qosv4/ipkg
+svn://svn.openwrt.org.cn/dreambox/feeds/luci/trunk/luci/luci/applications/luci-nwan/ipkg
 svn://svn.openwrt.org.cn/dreambox
 
 
@@ -26,14 +26,48 @@ richard.nee.cn
 
 74e81aba-36f0-4891-8cfb-1815f9025a0c
 
+conffiles
+file
+
+
+
+
+2013-10-11T16:34:52.829087Z
+46c0625a196acc67fdbe0ce93408b37b
+2012-12-24T06:22:02.463732Z
+567
+richard.nee.cn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+40
+
 postinst
 file
 
 
 
 
-2013-10-19T04:30:19.424376Z
-8cddfc472578496a4d078ef3d2345956
+2013-10-11T16:34:52.829087Z
+e88917bfdbf5772c934b4f8bad499fd1
 2012-12-24T06:22:02.463732Z
 567
 richard.nee.cn
@@ -58,7 +92,7 @@ has-props
 
 
 
-280
+312
 
 postrm
 file
@@ -66,8 +100,8 @@ file
 
 
 
-2013-10-19T04:30:19.424376Z
-08d8b6ccc51a4f39dd29716322e90eba
+2013-10-11T16:34:52.829087Z
+f0e86cdf439d67cb8b1e1553c2ff11ba
 2012-12-24T06:22:02.463732Z
 567
 richard.nee.cn
@@ -92,39 +126,5 @@ has-props
 
 
 
-77
-
-conffiles
-file
-
-
-
-
-2013-10-19T04:30:19.424376Z
-bd70becf18ce708e81b104ea97a3cf87
-2012-12-24T06:22:02.463732Z
-567
-richard.nee.cn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-17
+332
 
