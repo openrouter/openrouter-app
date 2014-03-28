@@ -1,0 +1,11 @@
+#!/bin/sh 
+
+uci -q batch <<-EOF >/dev/null
+          delete ucitrack.@cron[-1]
+          add ucitrack cron
+          set ucitrack.@cron[-1].init=cron
+          add_list ucitrack.@cron[-1].affects=cron
+          commit ucitrack
+EOF
+rm -f /tmp/luci-indexcache
+exit 0
