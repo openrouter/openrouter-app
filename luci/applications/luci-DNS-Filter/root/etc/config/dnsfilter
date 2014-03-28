@@ -1,5 +1,5 @@
 config dnsfilter 'config'
-	option enabled '0'
+	option enabled '1'
 	option adblock '1'
 	option hosts '1'
 	option autoupdate '1'

@@ -1,12 +1,3 @@
-// modified by mmikowski 20090803
-// * Added semicolons after function declarations;
-//   their omission broke YUI compressor
-// * Converted to Unix style line endings
-// modified by mmikowski 20100114 for firefox 3.5 support
-// * See http://code.google.com/p/jquery-rotate/issues/detail?id=3#c2 comment 1
-//   I had to rewrite this to resolve multiple rotations
-//
-
 jQuery.fn.rotate = function(angle,whence) {
 
 var fnRotate = function(canvas,rotation){

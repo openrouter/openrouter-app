@@ -1,6 +1,4 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2012 NowVideo Forum / animefans_xj
-
 START=99
 
 start() {

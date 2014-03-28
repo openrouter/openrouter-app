@@ -1,26 +1,26 @@
-msgid ""
-msgstr ""
+msgid "VPN Service"
+msgstr "VPN拨号配置"
 
-msgid ""
-msgstr ""
+msgid "This is a web interface to config PPTP service."
+msgstr "在此页面你可以设置pptp拨号信息"
 
-msgid ""
-msgstr ""
+msgid "IP"
+msgstr "IP配置"
 
-msgid ""
-msgstr ""
+msgid "Basic IP"
+msgstr "基本IP"
 
-msgid ""
-msgstr ""
+msgid "Start from"
+msgstr "起"
 
-msgid ""
-msgstr ""
+msgid "End to"
+msgstr "终"
 
-msgid ""
-msgstr ""
+msgid "Users"
+msgstr "用户设置"
 
-msgid ""
-msgstr ""
+msgid "UserName"
+msgstr "用户名"
 
 msgid ""
 msgstr ""

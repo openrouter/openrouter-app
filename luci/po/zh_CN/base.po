@@ -13,6 +13,30 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.6\n"
 
+msgid "VPN Service"
+msgstr "VPN拨号配置"
+
+msgid "This is a web interface to config PPTP service."
+msgstr "在此页面你可以设置pptp拨号信息"
+
+msgid "IP"
+msgstr "IP配置"
+
+msgid "Basic IP"
+msgstr "基本IP"
+
+msgid "Start from"
+msgstr "起"
+
+msgid "End to"
+msgstr "终"
+
+msgid "Users"
+msgstr "用户设置"
+
+msgid "UserName"
+msgstr "用户名"
+
 msgid "task name"
 msgstr "计划任务名"
 

@@ -1,4 +1,3 @@
-
 config aria2 'main'
 	option user 'root'
 	option logEnable '1'

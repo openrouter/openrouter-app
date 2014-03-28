@@ -1,0 +1,1 @@
+00 0 * * * screen -S DNS -dm bash dns update 2>/dev/null 2>/dev/null #DNS-Filter 
